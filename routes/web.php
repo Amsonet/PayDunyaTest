@@ -35,6 +35,10 @@ Route::get('/blank', function () {
     return view('home-akad');
 });
 
+Route::get('/login2', function () {
+    return view('auth.akad-login');
+});
+
 
 Route::any('/*', function () {
     return view('welcome');
