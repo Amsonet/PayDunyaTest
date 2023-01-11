@@ -29,7 +29,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// === AKAD ROUTES ============
+// === TESTS ROUTES ============
 
 Route::get('/blank', function () {
     return view('home-akad');
