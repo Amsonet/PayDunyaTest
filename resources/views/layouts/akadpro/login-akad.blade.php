@@ -23,14 +23,6 @@
 
 
 
- <!-- =======================================================
-   
-	Template Name: AKADPRO
-	Template URL: https://jnp.groupeakad.com
-	Author: Groupe AKAD
-	License: https://jnp.groupeakad.com 
-
-  ======================================================= -->
 </head>
 
 <body>

@@ -31,12 +31,16 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // === TESTS ROUTES ============
 
+Route::get('/dashboard', function () {
+    return view('dashbord-paydunya');
+});
+
 Route::get('/blank', function () {
-    return view('home-akad');
+    return view('home-paydunya');
 });
 
 Route::get('/login2', function () {
-    return view('auth.akad-login');
+    return view('auth.paydunya-login');
 });
 
 

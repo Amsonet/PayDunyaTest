@@ -1,15 +1,4 @@
-/** 3AAA35  BDBCBC  3AAA35 #2f323a CBD2D6
-* Template Name: AKADPRO
-* Template URL: https://jnp.groupeakad.com
-* Author: Groupe AKAD
-* License: https://jnp.groupeakad.com 
-*/
-/*
-Template Name: AKADPRO - Bootstrap 3.1.1 Admin Theme
-Template Version: 1.0
-Author: Service Informatique AKAD
-Website: https://jnp.groupeakad.com 
-*/
+
 
 /* Import fonts */
 @import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
@@ -49,7 +38,7 @@ a, a:hover, a:focus {
 
 /* Bootstrap Modifications */
 .modal-header {
-	background: #3AAA35;
+	background: #0171b2;
 }
 
 .modal-title {
@@ -79,7 +68,7 @@ a, a:hover, a:focus {
 /*Theme Backgrounds*/
 
 .bg-theme {
-	background-color: #3AAA35;
+	background-color: #0171b2;
 }
 
 .bg-theme02 {
@@ -97,7 +86,7 @@ a, a:hover, a:focus {
 
 .btn-theme {
   color: #fff;
-  background-color: #3AAA35;
+  background-color: #0171b2;
   border-color: #48bcb4;
 }
 .btn-theme:hover,
@@ -208,11 +197,11 @@ hr {
 /*Exclusive Theme Colors Configuration*/
 
 .label-theme {
-	background-color: #3AAA35;
+	background-color: #0171b2;
 }
 
 .bg-theme {
-	background-color: #3AAA35;
+	background-color: #0171b2;
 }
 
 ul.top-menu > li > .logout {
@@ -223,7 +212,7 @@ ul.top-menu > li > .logout {
 	border: 1px solid #64c3c2 !important;
 	padding: 5px 15px;
 	margin-right: 15px;
-	background: #CBD2D6;
+	background: #e52330;
 	margin-top: 15px;
 }
 
@@ -447,7 +436,7 @@ a.logo:hover, a.logo:focus {
 }
 
 a.logo span {
-    color: #3AAA35;
+    color: #0171b2;
 }
 
 
@@ -525,7 +514,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 .dropdown-menu.extended li p.green {
-    background-color: #3AAA35;
+    background-color: #0171b2;
     color: #fff;
 }
 
@@ -729,9 +718,9 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     border-top-color: #E52330 !important;
 }
 .notify-arrow-green {
-    border-color: transparent transparent #3AAA35;
-    border-bottom-color: #3AAA35 !important;
-    border-top-color: #3AAA35 !important;
+    border-color: transparent transparent #0171b2;
+    border-bottom-color: #0171b2 !important;
+    border-top-color: #0171b2 !important;
 }
 
 
@@ -864,8 +853,8 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 .custom-bar-chart .bar .value {
     position: absolute;
     bottom: 0;
-    background: #3AAA35;
-    color: #3AAA35;
+    background: #0171b2;
+    color: #0171b2;
     width: 100%;
     -webkit-border-radius: 5px 5px 0 0;
     -moz-border-radius: 5px 5px 0 0;
@@ -995,7 +984,7 @@ PANELS CONFIGURATIONS
 /*Green Panel*/
 .green-panel {
 	text-align: center;
-	background: #3AAA35;
+	background: #0171b2;
 }
 .green-panel .green-header {
 	background: #1B8941;
@@ -1479,7 +1468,7 @@ PANELS CONFIGURATIONS
 	font-weight: 900;
 }
 .profile-01 {
-	background: #3AAA35;
+	background: #0171b2;
 	height: 50px;
 }
 .profile-01:hover {
@@ -1527,7 +1516,7 @@ PANELS CONFIGURATIONS
 	color: #cdcdcd;
 }
 .pr2-social a:hover {
-	color: #3AAA35;
+	color: #0171b2;
 }
 .pr2-social i {
 	margin-top: 15px;
@@ -1583,7 +1572,7 @@ PANELS CONFIGURATIONS
     font-size: 12px;
 }
 .panel.terques-chart .chart-tittle .value a:hover, .panel.terques-chart .chart-tittle .value a.active {
-    color: #3AAA35;
+    color: #0171b2;
     font-size: 12px;
 }
 .panel.terques-chart .chart-tittle {
@@ -1666,7 +1655,7 @@ PANELS CONFIGURATIONS
   display: block;
   position: relative;
   overflow: hidden;
-  background-color: #3AAA35;
+  background-color: #0171b2;
   -webkit-transition: background-color 0.4s;
   -moz-transition: background-color 0.4s;
   -o-transition: background-color 0.4s;
@@ -1686,7 +1675,7 @@ PANELS CONFIGURATIONS
 }
 
 .project:hover .photo-wrapper {
-  background-color: #3AAA35;
+  background-color: #0171b2;
 	background-image:url(../img/zoom.png);
 	background-repeat:no-repeat;
 	background-position:center;
@@ -1942,7 +1931,7 @@ ul li {
 }
 .dataTables_paginate.paging_bootstrap.pagination li:hover a, .dataTables_paginate.paging_bootstrap.pagination li.active a {
 	color: #fff;
-	background: #3AAA35;
+	background: #0171b2;
 	border-radius: 3px;
 	-webkit-border-radius: 3px;
 }
@@ -1960,7 +1949,7 @@ ul li {
 	margin: 0;
 	padding: 25px 20px;
 	text-align: center;
-	background: #3AAA35;
+	background: #0171b2;
 	border-radius: 5px 5px 0 0;
 	-webkit-border-radius: 5px 5px 0 0;
 	color: #fff;
@@ -2182,7 +2171,7 @@ ul.my-friends li .friends-pic {
 	height:3px;
 	margin: 10px auto;
 	width: 80px;
-	background-color:#3AAA35;
+	background-color:#0171b2;
 }
 .icn-main-container {
 	position: relative;
@@ -2198,7 +2187,7 @@ ul.my-friends li .friends-pic {
 	font-size: 2.4em;
 	line-height: 100px;
 	color: #fff;
-	background-color:#3AAA35;
+	background-color:#0171b2;
 		-webkit-transition: all 0.6s ease-in-out;
 		transition: all 0.6s ease-in-out;
 }
@@ -2362,7 +2351,7 @@ a.mail-dropdown {
     padding:20px;
 }
 .btn-compose {
-    background:#3AAA35;
+    background:#0171b2;
     padding:12px 0;
     text-align:center;
     width:100%;
@@ -2689,11 +2678,11 @@ ul.inbox-pagination li {
 }
 
 .view-mail a, .attachment-mail a:hover {
-    color: #3AAA35;
+    color: #0171b2;
 }
 
 .attachment-mail a{
-    color: #3AAA35;
+    color: #0171b2;
 }
 
 .attachment-mail ul li  {
@@ -2771,7 +2760,7 @@ ul.inbox-pagination li {
 }
 
 .chat-room-head {
-    background:#3AAA35;
+    background:#0171b2;
     color: #FFFFFF;
     min-height: 70px;
     padding: 15px;
@@ -2926,7 +2915,7 @@ ul.chat-user li a:hover{
     font-size: 16px;
 }
 .room-box h5 a {
-    color: #3AAA35;
+    color: #0171b2;
 }
 
 .chat-tools {
@@ -2974,7 +2963,7 @@ ul.chat-available-user li a {
 }
 
 ul.chat-available-user li a:hover {
-    color: #3AAA35;
+    color: #0171b2;
 }
 
 
@@ -3320,7 +3309,7 @@ ul.chat-available-user li a:hover {
 
 /*footer*/
 .site-footer {
-    background: #3AAA35;
+    background: #0171b2;
     color: #fff;
     padding: 15px 0;
 }
@@ -3349,7 +3338,7 @@ ul.chat-available-user li a:hover {
 }
 
 .site-min-height {
-    min-height: 900px;
+    min-height: 650px;
 }
 
 
@@ -3383,7 +3372,7 @@ ul.chat-available-user li a:hover {
 }
 
 .contact-form .form-send button  {
-  background: #3AAA35;
+  background: #0171b2;
   border: 0;
   padding: 10px 30px;
   color: #fff;

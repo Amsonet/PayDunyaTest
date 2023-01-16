@@ -2,10 +2,10 @@
 <footer class="site-footer">
       <div class="text-center">
         <p>
-          &copy; Copyrights <strong>JNP SA</strong>. All Rights Reserved
+           <strong>Transfert d'Argent</strong>
         </p>
         <div class="credits">         
-          Logiciel de digitalisation des processus de JNP SA - <a href="http://jnp.groupeakad.com/">AKADPRO</a>
+          Test Technique de PAYDUNYA- <a href="#">Money Cash</a>
         </div>
         <a href="blank.html#" class="go-top">
           <i class="fa fa-angle-up"></i>

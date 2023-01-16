@@ -5,7 +5,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-     <a href="index.html" class="logo" style="color:#E52330" alt="Logiciel de digitalisation des processus de JNP." title="Logiciel de digitalisation des processus de JNP."><b>AKAD<span>PRO</span></b></a>
+     <a href="index.html" class="logo" style="color:#E52330" alt="Test Technique de PAYDUNYA." title="Test Technique de PAYDUNYA."><b>TEST<span>PAYDUNYA</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -194,7 +194,21 @@
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="login.html">Logout</a></li>
+          <li>
+
+                                    <a class=" logout dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        Deconnecter
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+
+                  
+        
+        </li>
         </ul>
       </div>
     </header>

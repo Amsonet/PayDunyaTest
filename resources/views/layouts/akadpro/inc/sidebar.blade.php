@@ -4,72 +4,31 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="{{ asset('template/Dashio/img/logoPNG.png') }}" class="img-circle" width="80"></a></p>
-          <h5 class="centered">Processus Digitalisés</h5>
+          <p class="centered"><a href="" alt='{{Auth::User()->name}}' title='{{Auth::User()->name}}' ><img src="{{ asset('template/Dashio/img/ui-danro.jpg') }}" class="img-circle" width="80"></a></p>
+          <h5 class="centered">{{Auth::User()->name}}(montant disponible sur le compte)</h5>
           <li class="mt">
-            <a href="index.html">
+            <a href="/dashboard">
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
               </a>
           </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-desktop"></i>
-              <span>Gestion des courriers Entrants</span>
-              </a>
-            <ul class="sub">
-              <li><a href="general.html">Enregistrer courrier</a></li>
-              <li><a href="buttons.html">Affecter un courrier</a></li>
-              <li><a href="panels.html">Faire le suivi</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-cogs"></i>
-              <span>Gestion courriers Sortants</span>
-              </a>
-            <ul class="sub">
-              <li><a href="grids.html">Lettre</a></li>
-              <li><a href="grids.html">Attestation</a></li>
-              <li><a href="calendar.html">Note de Service</a></li>
-              <li><a href="gallery.html">Demande d'explication</a></li>
-              <li><a href="todo_list.html">Contrats</a></li>
-            
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a class="active" href="javascript:;">
-              <i class="fa fa-book"></i>
-              <span>Faire une demande</span>
-              </a>
-            <ul class="sub">
-              <li class="active"><a href="blank.html">Demande de Fond</a></li>
-              <li><a href="login.html">Expression de besoins</a></li>
-              <li><a href="lock_screen.html">Demande de conges</a></li>
-              <li><a href="profile.html">Missions</a></li>
-             
-            </ul>
-          </li>
          
-         
-          
-       
-         
+   
           <li>
-            <a href="google_maps.html">
+            <a href="/home">
               <i class="fa fa-map-marker"></i>
-              <span>Suivi de mes dossiers</span>
+              <span>Envoyer de l'argent</span>
               </a>
           </li>
 		   <li>
-            <a href="google_maps.html">
+            <a href="/home">
               <i class="fa fa-map-marker"></i>
-              <span>Points de Vente</span>
+              <span>Recharger mon compte</span>
               </a>
           </li>
 		
 		  
-		   <li class="sub-menu">
+		   <li class="/home">
             <a href="javascript:;">
               <i class="fa fa-tasks"></i>
               <span>Gestion</span>
@@ -91,7 +50,7 @@
               <span>SECURITE</span>
               </a>
             <ul class="sub">
-              <li><a href="form_component.html">Gestion des utilisateurs</a></li>             
+              <li><a href="/home">Gestion des utilisateurs</a></li>             
 			  
             </ul>
           </li>

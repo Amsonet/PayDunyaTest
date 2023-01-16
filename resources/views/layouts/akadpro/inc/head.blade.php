@@ -5,7 +5,7 @@
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>AKADPRO - Logiciel de digitalisation des processus de JNP.</title>
+  <title>Test Technique de PAYDUNYA.</title>
 
   <!-- Favicons -->
   <link href="{{ asset('template/Dashio/img/favicon.jpg') }}" rel="icon">
@@ -20,13 +20,4 @@
   <link href="{{ asset('template/Dashio/css/style-responsive.css') }}" rel="stylesheet">
 
 
-
- <!-- =======================================================
-   
-		Template Name: AKADPRO
-		Template URL: https://jnp.groupeakad.com
-		Author: Groupe AKAD
-		License: https://jnp.groupeakad.com 
-
-  ======================================================= -->
 </head>

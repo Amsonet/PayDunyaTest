@@ -73,7 +73,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        $user->notify(new AkadProNotification());
+        //$user->notify(new AkadProNotification());
 
         return $user;
     }
