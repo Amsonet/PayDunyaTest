@@ -31,7 +31,7 @@
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
   <div id="login-page">
-    <div class="container" style="opacity:0.7">
+    <div class="container">
       
       <form class="form-login" method="POST" action="{{ route('login') }}">
                         @csrf
@@ -74,6 +74,8 @@
             <div class="modal-content">
 			
             @include('auth.register-paydunya')   
+
+
 
 
             </div>

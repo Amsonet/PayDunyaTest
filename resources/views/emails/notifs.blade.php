@@ -19,11 +19,11 @@
 
         <p>-- <br/> 
           Cordiallement, <br/>
-          DigiPro.
+          Paydunya.
         </p>
     </div>
     <div class="text-center mt-6">
-    <img class="img-pnud" src="{{public_path('storage/uploads/img/logo2.png')}}" alt="">                
+    <img class="img-pnud" src="" alt="">                
     </div>
 </div>
 

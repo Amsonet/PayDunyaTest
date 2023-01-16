@@ -4,7 +4,9 @@
 
 
       <section class="wrapper site-min-height">
-      <form action="#" class="form-horizontal style-form">
+      <form action="/SaveTransaction" class="form-horizontal style-form">
+      @csrf
+
       <h3><i class="fa fa-angle-right"></i>Bienvenue sur la Platforme de Paydunya</h3>
         <div class="row mt">
           
@@ -18,7 +20,7 @@
                 <div class="form-group" style="padding-left:200px;">
                   <label class="control-label col-md-2">Votre code de transfert:</label>
                   <div class="col-md-6 col-xs-11">
-                  <input type="text" class="form-control" value="XXX-XXX-XXX" readonly>
+                  <input type="text" id="transaction_number" name="transaction_number" class="form-control" value="XXX-XXX-XXX" readonly>
                     <span class="help-block">A transmettre au bénéficiaire</span>
                   </div>
                 </div>
@@ -26,9 +28,9 @@
                   <label class="control-label col-md-2">Montant:</label>
                   <div class="col-md-2 col-xs-11">
                     <div class="input-append date dpYears">
-                    <input type="number" class="form-control" value=""  required>
+                    <input type="number" id="amount" name="amount"  class="form-control" value=""  required>
                       <span class="input-group-btn add-on">
-                        <button class="btn btn-theme" type="button"><i class="fa fa-calendar"></i></button>
+                        <button class="btn btn-theme" type="button"><i class="fa fa-eur"></i></button>
                         </span>
                     </div>
                     <span class="help-block">EN CFA</span>
@@ -40,7 +42,7 @@
                   <label class="control-label col-md-1">Motif du transfert:</label>
                   <div class="col-md-2 col-xs-11">
                     <div   class="input-append date dpYears">
-                    <input type="text" class="form-control" value="" required >
+                    <input type="text" id="reason" name="reason"  class="form-control" value="" required >
                       
                     </div>
                     <span class="help-block"></span>
@@ -94,7 +96,7 @@
                   <label class="control-label col-md-1">Ville:</label>
                   <div class="col-md-3 col-xs-11">
                     <div class="input-append date dpYears">
-                    <input type="number" class="form-control" value=""  required>
+                    <input id="town" name="town"  type="text" class="form-control" value=""  required>
                      
                     </div>
                     <span class="help-block"></span>
@@ -106,7 +108,7 @@
                   <label class="control-label col-md-1">Pays:</label>
                   <div class="col-md-3 col-xs-11">
                     <div   class="input-append date dpYears">
-                    <input type="text" class="form-control" value="" required >
+                    <input id="country" name="country"  type="text" class="form-control" value="" required >
                       
                     </div>
                     <span class="help-block"></span>
@@ -118,7 +120,7 @@
                   <label class="control-label col-md-1">Nom:</label>
                   <div class="col-md-3 col-xs-11">
                     <div class="input-append date dpYears">
-                    <input type="number" class="form-control" value=""  required>
+                    <input type="text" id="lastName" name="lastName"  class="form-control" value=""  required>
                       
                     </div>
                     <span class="help-block">Nom du Beneficiaire</span>
@@ -130,7 +132,7 @@
                   <label class="control-label col-md-1">Prenoms:</label>
                   <div class="col-md-3 col-xs-11">
                     <div   class="input-append date dpYears">
-                    <input type="text" class="form-control" value="" required >
+                    <input type="text" id="firstName" name="firstName"  class="form-control" value="" required >
                       
                     </div>
                     <span class="help-block">Prenoms du Beneficiaire</span>
@@ -142,7 +144,7 @@
                   <label class="control-label col-md-1">Tel:</label>
                   <div class="col-md-3 col-xs-11">
                     <div class="input-append date dpYears">
-                    <input type="number" class="form-control" value=""  required>
+                    <input type="number" id="tel" name="tel"  class="form-control" value=""  required>
                       
                     </div>
                     <span class="help-block"></span>
@@ -154,7 +156,7 @@
                   <label class="control-label col-md-1">Profession:</label>
                   <div class="col-md-3 col-xs-11">
                     <div   class="input-append date dpYears">
-                    <input type="text" class="form-control" value="" required >
+                    <input type="text" id="job" name="job" class="form-control" value="" required >
                       
                     </div>
                     <span class="help-block"></span>
@@ -166,7 +168,7 @@
                   <label class="control-label col-md-1">Question:</label>
                   <div class="col-md-3 col-xs-11">
                     <div class="input-append date dpYears">
-                    <input type="number" class="form-control" value=""  required>
+                    <input type="text" id="question" name="question"  class="form-control" value=""  required>
                       
                     </div>
                     <span class="help-block"></span>
@@ -178,7 +180,7 @@
                   <label class="control-label col-md-1">Reponse:</label>
                   <div class="col-md-3 col-xs-11">
                     <div   class="input-append date dpYears">
-                    <input type="text" class="form-control" value="" required >
+                    <input type="text" id="answer" name="answer"  class="form-control" value="" required >
                       
                     </div>
                     <span class="help-block"></span>
@@ -230,7 +232,7 @@
                   <label class="control-label col-md-1">Ville:</label>
                   <div class="col-md-3 col-xs-11">
                     <div class="input-append date dpYears">
-                    <input type="number" class="form-control" value=""  required>
+                    <input type="text" id="town-cb" name="town-cp" class="form-control" value="" >
                      
                     </div>
                     <span class="help-block"></span>
@@ -242,7 +244,7 @@
                   <label class="control-label col-md-1">Pays:</label>
                   <div class="col-md-3 col-xs-11">
                     <div   class="input-append date dpYears">
-                    <input type="text" class="form-control" value="" required >
+                    <input type="text" id="country-cb" name="country-cb"  class="form-control" value="" >
                       
                     </div>
                     <span class="help-block"></span>
@@ -254,7 +256,7 @@
                 
                 <div class="col-md-2 col-xs-11">
                     <div class="input-append date dpYears">
-                    <input type="number" class="form-control" value=""  required>
+                    <input type="text" id="code_pays" name="code_pays"  class="form-control" value=""  >
                      
                     </div>
                     <span class="help-block">Code Pays</span>
@@ -264,7 +266,7 @@
 
                   <div class="col-md-2 col-xs-11">
                     <div class="input-append date dpYears">
-                    <input type="number" class="form-control" value=""  required>
+                    <input type="text" id="code_banque" name="code_banque" class="form-control" value="" >
                      
                     </div>
                     <span class="help-block">Code Banque</span>
@@ -275,7 +277,7 @@
 
                   <div class="col-md-2 col-xs-11">
                     <div class="input-append date dpYears">
-                    <input type="number" class="form-control" value=""  required>
+                    <input type="text" id="code_guichet" name="code_guichet" class="form-control" value="" >
                      
                     </div>
                     <span class="help-block">Code Guichet</span>
@@ -285,7 +287,7 @@
 
                   <div class="col-md-2 col-xs-11">
                     <div class="input-append date dpYears">
-                    <input type="number" class="form-control" value=""  required>
+                    <input type="text" id="account_number" name="account_number"  class="form-control" value="" >
                      
                     </div>
                     <span class="help-block">Numero Compte</span>
@@ -296,7 +298,7 @@
                   
                   <div class="col-md-1 col-xs-11">
                     <div   class="input-append date dpYears">
-                    <input type="text" class="form-control" value="" required >
+                    <input type="text" id="rib" name="rib" class="form-control" value="" >
                       
                     </div>
                     <span class="help-block">Cle RIB</span>
@@ -307,7 +309,7 @@
                 <div class="form-group" style="padding-left:50px;">
                   <label class="control-label col-md-1">Code IBAN:</label>
                   <div class="col-md-3 col-xs-11">
-                  <input type="text" class="form-control" value="XXX-XXX-XXX" >
+                  <input type="text" id="iban" name="iban" class="form-control" value="" >
                     <span class="help-block"></span>
                   </div>
                 </div>
@@ -315,7 +317,7 @@
                 <div class="form-group" style="padding-left:50px;">
                   <label class="control-label col-md-1">Numeros compte:</label>
                   <div class="col-md-3 col-xs-11">
-                  <input type="text" class="form-control" value="XXX-XXX-XXX" >
+                  <input type="text" id="full_account_number" name="full_account_number"  class="form-control" value="" >
                     <span class="help-block">Interne</span>
                   </div>
                 </div>
@@ -323,7 +325,7 @@
                 <div class="form-group" style="padding-left:50px;">
                   <label class="control-label col-md-1">Code SWIFT:</label>
                   <div class="col-md-3 col-xs-11">
-                  <input type="text" class="form-control" value="XXX-XXX-XXX" >
+                  <input type="text" id="swift" name="swift"  class="form-control" value="" >
                     <span class="help-block"></span>
                   </div>
                 </div>
@@ -365,19 +367,19 @@
                           <div class="form-group">
                             <label class="col-lg-2 control-label">Speudo ou Identifiant: </label>
                             <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="addr2" class="form-control">
+                              <input type="text" placeholder=" " id="beneficiary_speudo" name="beneficiary_speudo"  class="form-control">
                             </div>
                           </div>
                           <div class="form-group">
                             <label class="col-lg-2 control-label">Nom: </label>
                             <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="phone" class="form-control">
+                              <input type="text" placeholder=" " id="beneficiary_name" name="beneficiary_name" class="form-control">
                             </div>
                           </div>
                           <div class="form-group">
                             <label class="col-lg-2 control-label">Prenoms: </label>
                             <div class="col-lg-6">
-                              <input type="text" placeholder=" " id="cell" class="form-control">
+                              <input type="text" placeholder=" " iid="beneficiary_lastname" name="beneficiary_lastname" class="form-control">
                             </div>
                           </div>
                           

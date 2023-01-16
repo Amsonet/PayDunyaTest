@@ -16,7 +16,9 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
 
-            $table->string('last_name');
+            $table->string('transaction_number',20)->unique();
+            $table->string('reason',50);
+
             $table->decimal('amount', 15, 2);
             $table->enum('type', ['Debit','Credit']);
             $table->enum('receipt_method', ['Cash','Virement Banquaire','Compte Paydunyia','GSM']);

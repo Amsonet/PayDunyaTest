@@ -35,9 +35,9 @@ Route::get('/dashboard', function () {
     return view('dashbord-paydunya');
 });
 
-Route::get('/blank', function () {
-    return view('home-paydunya');
-});
+
+Route::get('/blank', [App\Http\Controllers\NewTransactionController::class, 'index'])->name('home');
+
 
 Route::get('/login2', function () {
     return view('auth.paydunya-login');
