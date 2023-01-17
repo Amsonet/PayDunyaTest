@@ -20,4 +20,10 @@
   <link href="{{ asset('template/Dashio/css/style-responsive.css') }}" rel="stylesheet">
 
 
+  <link href="{{ asset('template/Dashio/lib/advanced-datatable/css/demo_page.css') }}" rel="stylesheet" />
+  <link href="{{ asset('template/Dashio/lib/advanced-datatable/css/demo_table.css') }}" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ asset('template/Dashio/lib/advanced-datatable/css/DT_bootstrap.css') }}" />
+  <!-- Custom styles for this template -->
+
+
 </head>
