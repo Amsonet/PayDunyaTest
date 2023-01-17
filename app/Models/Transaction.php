@@ -10,7 +10,8 @@ use App\Models\CustomerAccount;
 class Transaction extends Model
 {
     use HasFactory;
-
+    protected $guarded = [];
+    
     public function customeraccount(){
         return $this->belongsTo(CustomerAccount::class);
     }

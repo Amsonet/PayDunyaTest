@@ -12,6 +12,7 @@ use App\Models\Transaction;
 class Currency extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 
     public function customeraccounts(){
         return $this->hasMany(CustomerAccount::class);

@@ -3,24 +3,132 @@
 @section('content')
 
 
+      <script>
+        function sendCash()
+            {
+              document.getElementById("showback").innerHTML='';
+
+            //alert(document.getElementsByName("_token")[0].value);
+
+
+              if(document.getElementById("amount").value =="" || document.getElementById("amount").value <=0 || isNaN(document.getElementById("amount").value)){
+                
+                document.getElementById("amount").style.borderColor='#a94442';
+                document.getElementById("amount").focus();
+                 
+                 alert('Veuillez entrer le montant de la transaction');
+                 return false;
+
+             }
+
+             if(document.getElementById("reason").value =="" ){
+               
+               document.getElementById("reason").style.borderColor='#a94442';
+               document.getElementById("reason").focus();
+                
+                alert('Veuillez entrer le motif de la transaction');
+                return false;
+            }
+
+
+            if(document.getElementById("town").value ==""){
+               
+               document.getElementById("town").style.borderColor='#a94442';
+               document.getElementById("town").focus();
+                
+                alert('Veuillez entrer la ville du beneficiaire');
+                return false;
+            }
+
+            
+            if(document.getElementById("country").value ==""){
+               
+               document.getElementById("country").style.borderColor='#a94442';
+               document.getElementById("country").focus();
+                
+                alert('Veuillez entrer le pays du beneficiaire');
+                return false;
+            }
+                
+
+
+            if(document.getElementById("lastName").value ==""){
+                
+                document.getElementById("lastName").style.borderColor='#a94442';
+                document.getElementById("lastName").focus();
+                 
+                alert('Veuillez entrer le nom du beneficiaire');
+                 return false;
+
+             }
+
+             if(document.getElementById("firstName").value ==""){
+               
+               document.getElementById("firstName").style.borderColor='#a94442';
+               document.getElementById("firstName").focus();
+                
+                alert('Veuillez entrer le prenom du beneficiaire');
+                return false;
+            }
+            
+              $.ajax({
+                type: 'POST',
+                url: '/SaveTransaction',
+                dataa:'_token = <?php echo csrf_token() ?>',
+                data: {
+
+                  _token:document.getElementsByName("_token")[0].value,
+                  transaction_number:document.getElementById("transaction_number").value,
+                  amount:document.getElementById("amount").value,
+                  reason:document.getElementById("reason").value,
+                  town:document.getElementById("town").value,
+                  country:document.getElementById("country").value,
+                  lastName:document.getElementById("lastName").value,
+                  firstName:document.getElementById("firstName").value,
+                  tel:document.getElementById("tel").value,
+                  job:document.getElementById("job").value,
+                  question:document.getElementById("question").value,
+                  answer:document.getElementById("answer").value,
+                  receipt_method:'Cash'
+                  
+                },
+                success:function(data) {
+                  if(data.success)document.getElementById("t-form").reset();
+                  $("#showback").html(data.msg);
+                  document.getElementById("f").focus();
+                 
+               }
+              });
+                
+              return false;
+            }
+      </script>
+
+
+
       <section class="wrapper site-min-height">
-      <form action="/SaveTransaction" class="form-horizontal style-form">
+      <form action="/SaveTransaction" id='t-form' method='POST' class="form-horizontal style-form">
       @csrf
+      <input type="hidden" id="f" name="f"  class="form-control" value="" >
 
       <h3><i class="fa fa-angle-right"></i>Bienvenue sur la Platforme de Paydunya</h3>
         <div class="row mt">
           
 
-        
-     	
+   
           <!--  FORM -->
           <div class="col-lg-12">
             <div class="form-panel">
-              
+
+            <div class="showbackk" id="showback">
+             
+            </div>
+
                 <div class="form-group" style="padding-left:200px;">
+
                   <label class="control-label col-md-2">Votre code de transfert:</label>
                   <div class="col-md-6 col-xs-11">
-                  <input type="text" id="transaction_number" name="transaction_number" class="form-control" value="XXX-XXX-XXX" readonly>
+                  <input type="text" id="transaction_number" name="transaction_number" class="form-control" value="{{$code}}" readonly>
                     <span class="help-block">A transmettre au bénéficiaire</span>
                   </div>
                 </div>
@@ -28,7 +136,7 @@
                   <label class="control-label col-md-2">Montant:</label>
                   <div class="col-md-2 col-xs-11">
                     <div class="input-append date dpYears">
-                    <input type="number" id="amount" name="amount"  class="form-control" value=""  required>
+                    <input type="number" id="amount" name="amount" min='0'  class="form-control" value="1"  required>
                       <span class="input-group-btn add-on">
                         <button class="btn btn-theme" type="button"><i class="fa fa-eur"></i></button>
                         </span>
@@ -96,7 +204,7 @@
                   <label class="control-label col-md-1">Ville:</label>
                   <div class="col-md-3 col-xs-11">
                     <div class="input-append date dpYears">
-                    <input id="town" name="town"  type="text" class="form-control" value=""  required>
+                    <input id="town" name="town"  type="text" class="form-control" value="" >
                      
                     </div>
                     <span class="help-block"></span>
@@ -108,7 +216,7 @@
                   <label class="control-label col-md-1">Pays:</label>
                   <div class="col-md-3 col-xs-11">
                     <div   class="input-append date dpYears">
-                    <input id="country" name="country"  type="text" class="form-control" value="" required >
+                    <input id="country" name="country"  type="text" class="form-control" value="" >
                       
                     </div>
                     <span class="help-block"></span>
@@ -120,7 +228,7 @@
                   <label class="control-label col-md-1">Nom:</label>
                   <div class="col-md-3 col-xs-11">
                     <div class="input-append date dpYears">
-                    <input type="text" id="lastName" name="lastName"  class="form-control" value=""  required>
+                    <input type="text" id="lastName" name="lastName"  class="form-control" value="">
                       
                     </div>
                     <span class="help-block">Nom du Beneficiaire</span>
@@ -132,7 +240,7 @@
                   <label class="control-label col-md-1">Prenoms:</label>
                   <div class="col-md-3 col-xs-11">
                     <div   class="input-append date dpYears">
-                    <input type="text" id="firstName" name="firstName"  class="form-control" value="" required >
+                    <input type="text" id="firstName" name="firstName"  class="form-control" value=""  >
                       
                     </div>
                     <span class="help-block">Prenoms du Beneficiaire</span>
@@ -144,7 +252,7 @@
                   <label class="control-label col-md-1">Tel:</label>
                   <div class="col-md-3 col-xs-11">
                     <div class="input-append date dpYears">
-                    <input type="number" id="tel" name="tel"  class="form-control" value=""  required>
+                    <input type="number" id="tel" name="tel"  class="form-control" value=""  >
                       
                     </div>
                     <span class="help-block"></span>
@@ -156,7 +264,7 @@
                   <label class="control-label col-md-1">Profession:</label>
                   <div class="col-md-3 col-xs-11">
                     <div   class="input-append date dpYears">
-                    <input type="text" id="job" name="job" class="form-control" value="" required >
+                    <input type="text" id="job" name="job" class="form-control" value=""  >
                       
                     </div>
                     <span class="help-block"></span>
@@ -168,7 +276,7 @@
                   <label class="control-label col-md-1">Question:</label>
                   <div class="col-md-3 col-xs-11">
                     <div class="input-append date dpYears">
-                    <input type="text" id="question" name="question"  class="form-control" value=""  required>
+                    <input type="text" id="question" name="question"  class="form-control" value=""  >
                       
                     </div>
                     <span class="help-block"></span>
@@ -180,7 +288,7 @@
                   <label class="control-label col-md-1">Reponse:</label>
                   <div class="col-md-3 col-xs-11">
                     <div   class="input-append date dpYears">
-                    <input type="text" id="answer" name="answer"  class="form-control" value="" required >
+                    <input type="text" id="answer" name="answer"  class="form-control" value=""  >
                       
                     </div>
                     <span class="help-block"></span>
@@ -193,7 +301,7 @@
                   
                   
                     <label class="control-label col-md-1">
-                    <button class="btn btn-theme" type="submit">Envoyer</button>
+                    <button class="btn btn-theme" type="button" onclick="sendCash()">Envoyer Espece</button>
                     </label>
 
                     <div class="col-md-3 col-xs-11">
@@ -335,7 +443,7 @@
                   
                   
                     <label class="control-label col-md-1">
-                    <button class="btn btn-theme" type="submit">Envoyer</button>
+                    <button class="btn btn-theme" type="button" onclick="sendBanq()">Effectuer Virement</button>
 
                     </label>
                     
@@ -386,7 +494,7 @@
                         
                           <div class="form-group">
                             <div class="col-lg-offset-2 col-lg-10">
-                              <button class="btn btn-theme" type="submit">Envoyer</button>
+                            <button class="btn btn-theme" type="button" onclick="sendPaydunya()">Transfert Paydunya</button>
                             </div>
                           </div>
                        

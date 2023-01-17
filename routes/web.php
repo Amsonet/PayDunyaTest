@@ -37,6 +37,7 @@ Route::get('/dashboard', function () {
 
 
 Route::get('/blank', [App\Http\Controllers\NewTransactionController::class, 'index'])->name('home');
+Route::post('/SaveTransaction', [App\Http\Controllers\NewTransactionController::class, 'store'])->name('transaction.store');
 
 
 Route::get('/login2', function () {
