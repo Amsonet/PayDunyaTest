@@ -94,8 +94,9 @@
                 },
                 success:function(data) {
                   if(data.success)document.getElementById("t-form").reset();
+                  alert(data.msg);
                   $("#showback").html(data.msg);
-                  document.getElementById("f").focus();
+                  document.getElementById("transaction_number").focus();
                  
                }
               });
