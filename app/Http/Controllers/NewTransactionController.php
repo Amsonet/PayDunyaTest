@@ -22,6 +22,22 @@ class NewTransactionController extends Controller
 
         $code=substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 4) .'-' .substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 4) .'-' .substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 4) .'-' .substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 4);
 
+        $transaction = Transaction::where('transaction_number', '=', $code)->get();
+        $transactionCount = $transaction->count();
+
+        if($transactionCount > 0){
+
+            while($transactionCount > 0){
+
+                $code=substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 4) .'-' .substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 4) .'-' .substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 4) .'-' .substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 4);
+
+                $transaction = Transaction::where('transaction_number', '=', $code)->get();
+                $transactionCount = $transaction->count();
+
+            }
+
+     }
+
         return view('home-paydunya',['code'=>$code]);
 
     }
