@@ -10,11 +10,11 @@
               <div class="col-md-4 profile-text mt mb centered">
                 <div class="right-divider hidden-sm hidden-xs">
                   <h4>{{$nbreTransactions}}</h4>
-                  <h6>FOLLOWERS</h6>
+                  <h6>TRANSACTIONS</h6>
                   <h4>{{$nbreReceipt}}</h4>
-                  <h6>FOLLOWING</h6>
+                  <h6>RECUS</h6>
                   <h4>{{$nbresending}}</h4>
-                  <h6>MONTHLY EARNINGS</h6>
+                  <h6>ENVOYES</h6>
                 </div>
               </div>
               <!-- /col-md-4 -->
@@ -23,14 +23,14 @@
                 <h6>Utilisateur Paydunya</h6>
                 <p>Envoyez et recevez de l'argent en toute securite de partout dans le monde.</p>
                 <br>
-                <p><button class="btn btn-theme"><i class="fa fa-envelope"></i> Send Message</button></p>
+                <p><button class="btn btn-theme"><i class="fa fa-envelope"></i> Envoyer l'argent</button></p>
               </div>
               <!-- /col-md-4 -->
               <div class="col-md-4 centered">
                 <div class="profile-pic">
                   <p><img src="img/ui-sam.jpg" class="img-circle"></p>
                   <p>
-                    <button class="btn btn-theme"><i class="fa fa-check"></i> Follow</button>
+                    <button class="btn btn-theme"><i class="fa fa-check"></i> Recharger</button>
                     <button class="btn btn-theme02">Add</button>
                   </p>
                 </div>
@@ -115,7 +115,7 @@
                           </div>
                         </div>
                         <!-- /row -->
-                        <h4>My Friends</h4>
+                        <h4>Devises</h4>
                         <div class="row centered mb">
                           <ul class="my-friends">
                             <li>

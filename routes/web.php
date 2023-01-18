@@ -45,8 +45,3 @@ Route::post('/SaveTransaction', [App\Http\Controllers\NewTransactionController::
 Route::get('/login2', function () {
     return view('auth.paydunya-login');
 });
-
-
-Route::any('/*', function () {
-    return view('welcome');
-});

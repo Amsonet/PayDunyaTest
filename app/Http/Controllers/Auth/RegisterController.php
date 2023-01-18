@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\CustomerAccount;
 use App\Notifications\AkadProNotification;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -72,6 +73,35 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+
+        $account_number=substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 10) ;
+        $account = CustomerAccount::where('account_number', '=', $account_number)->get();
+        $accountCount = $account->count();
+
+        if($accountCount > 0){
+
+            while($accountCount > 0){
+
+                $account_number=substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 10) ;
+                $account = CustomerAccount::where('account_number', '=', $account_number)->get();
+                $accountCount = $account->count();
+
+            }
+
+     }
+
+        \App\Models\CustomerAccount::create([
+            'account_number' => $account_number,
+               
+            'first_name' =>$data['name'],
+            'last_name' => $data['name'],
+            'balance' => '5000',
+            'user_id' => $user->id,            
+            'currency_id' =>'1'
+           
+            ]);  
+
 
         //$user->notify(new AkadProNotification());
 
