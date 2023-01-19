@@ -220,7 +220,19 @@
                 </thead>
 
                 <tbody>
-                
+                  @if($Transactions->count())
+                    @foreach($Transactions as $Transaction)
+                      <tr class="gradeU">
+                          <td>{{$Transaction->receipt_details}}</td>
+                          <td>{{$Transaction->amount}}</td>
+                          <td class="hidden-phone"></td>
+                          <td class="center hidden-phone"></td>
+                          <td class="center hidden-phone">{{$Transaction->type}}</td>
+                        </tr>
+                      @endforeach
+                    @endif
+
+
               </tbody>
 
                 </table>
