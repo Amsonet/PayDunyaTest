@@ -55,7 +55,7 @@ class NewTransactionController extends Controller
             $msg="<div class='alert alert-danger'><b>Desole!</b> Vous n'avez pas assez de credit pour effectuer cette operation.</div>";
 
             return response()->json(array('msg'=> $msg,'success'=> 0), 200);
-        }
+        }else $balance = $balance - $request->amount;
    
         \App\Models\Transaction::create([
             'transaction_number' => $request->transaction_number,
@@ -64,12 +64,16 @@ class NewTransactionController extends Controller
             'amount' => $request->amount,
             'type' => 'Debit',
             'receipt_method' => $request->receipt_method,
-            'receipt_details' =>$receipt_details, 
+            'receipt_details' =>$request->receipt_details, 
             'customer_account_id' => auth()->user()->customeraccount->id,
             'currency_id' =>'1'
            
             ]);  
       
+        $account = CustomerAccount::find(auth()->user()->customeraccount->id);
+        $account->balance = $balance;
+        $account->save();
+
     $msg="<div class='alert alert-success'><b>Done!</b> Votre envoi a ete effectue avec succes.</div>";
 
       return response()->json(array('msg'=> $msg,'success'=> 1), 200);

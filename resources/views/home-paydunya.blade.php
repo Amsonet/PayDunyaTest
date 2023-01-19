@@ -6,9 +6,9 @@
       <script>
         function sendCash()
             {
-              document.getElementById("showback").innerHTML='';
 
-            //alert(document.getElementsByName("_token")[0].value);
+      
+              document.getElementById("showback").innerHTML='';
 
 
               if(document.getElementById("amount").value =="" || document.getElementById("amount").value <=0 || isNaN(document.getElementById("amount").value)){
@@ -26,8 +26,10 @@
                document.getElementById("reason").style.borderColor='#a94442';
                document.getElementById("reason").focus();
                 
-                alert('Veuillez entrer le motif de la transaction');
+               
+               alert('Veuillez entrer le motif de la transaction');
                 return false;
+
             }
 
 
@@ -70,6 +72,9 @@
                 alert('Veuillez entrer le prenom du beneficiaire');
                 return false;
             }
+
+    receipt_details=document.getElementById("firstName").value +" " +document.getElementById("lastName").value +": Retrait de Cash par dans l'une de nos agence au: " +document.getElementById("country").value +" Veuillez transmettre le code suivant au Beneficiaire: " +document.getElementById("transaction_number").value +" SWIFT: " +document.getElementById("swift").value;
+
             
               $.ajax({
                 type: 'POST',
@@ -89,20 +94,269 @@
                   job:document.getElementById("job").value,
                   question:document.getElementById("question").value,
                   answer:document.getElementById("answer").value,
-                  receipt_method:'Cash'
+                  receipt_method:'Cash',
+                  receipt_details:receipt_details
+
+
                   
                 },
                 success:function(data) {
                   if(data.success)document.getElementById("t-form").reset();
-                  alert(data.msg);
+                  alert(receipt_details);
                   $("#showback").html(data.msg);
                   document.getElementById("transaction_number").focus();
                  
                }
               });
-                
+               
               return false;
             }
+
+
+            function sendBanq()
+            {
+
+      
+              document.getElementById("showback").innerHTML='';
+
+
+              if(document.getElementById("amount").value =="" || document.getElementById("amount").value <=0 || isNaN(document.getElementById("amount").value)){
+                
+                document.getElementById("amount").style.borderColor='#a94442';
+                document.getElementById("amount").focus();
+                 
+                 alert('Veuillez entrer le montant de la transaction');
+                 return false;
+
+             }
+
+             if(document.getElementById("reason").value =="" ){
+               
+               document.getElementById("reason").style.borderColor='#a94442';
+               document.getElementById("reason").focus();
+                
+               
+               alert('Veuillez entrer le motif de la transaction');
+                return false;
+
+            } 
+
+
+            if(document.getElementById("town-cb").value ==""){
+               
+               document.getElementById("town-cb").style.borderColor='#a94442';
+               document.getElementById("town-cb").focus();
+                
+                alert('Veuillez entrer la ville du beneficiaire');
+                return false;
+            }
+
+            
+            if(document.getElementById("country-cb").value ==""){
+               
+               document.getElementById("country-cb").style.borderColor='#a94442';
+               document.getElementById("country-cb").focus();
+                
+                alert('Veuillez entrer le pays du beneficiaire');
+                return false;
+            } 
+                
+
+
+            if(document.getElementById("code_pays").value ==""){
+                
+                document.getElementById("code_pays").style.borderColor='#a94442';
+                document.getElementById("code_pays").focus();
+                 
+                alert('Pour un virement banquaire; le Code Pays est neccessaire');
+                 return false;
+
+             }
+
+             if(document.getElementById("code_banque").value ==""){
+               
+               document.getElementById("code_banque").style.borderColor='#a94442';
+               document.getElementById("code_banque").focus();
+                
+                alert('Pour un virement banquaire; le Code Banque est neccessaire');
+                return false;
+            }   
+
+
+            if(document.getElementById("code_guichet").value ==""){
+                
+                document.getElementById("code_guichet").style.borderColor='#a94442';
+                document.getElementById("code_guichet").focus();
+                 
+                alert('Pour un virement banquaire; le Code Guichet est neccessaire');
+                 return false;
+
+             }
+
+             if(document.getElementById("account_number").value ==""){
+               
+               document.getElementById("account_number").style.borderColor='#a94442';
+               document.getElementById("account_number").focus();
+                
+                alert('Pour un virement banquaire; le numeros de compte est neccessaire');
+                return false;
+            }
+
+            if(document.getElementById("iban").value ==""){
+               
+               document.getElementById("iban").style.borderColor='#a94442';
+               document.getElementById("iban").focus();
+                
+                alert('Pour un virement banquaire; le IBAN est neccessaire');
+                return false;
+            }  
+
+            if(document.getElementById("swift").value ==""){
+               
+               document.getElementById("swift").style.borderColor='#a94442';
+               document.getElementById("swift").focus();
+                
+                alert('Pour un virement banquaire; le swift est neccessaire');
+                return false;
+            }
+
+ receipt_details="Un Virement Bancaire sera effectue au compte: " +document.getElementById("account_number").value +" IBAN: " +document.getElementById("iban").value +" SWIFT: " +document.getElementById("swift").value;
+
+            
+              $.ajax({
+                type: 'POST',
+                url: '/SaveTransaction',
+                dataa:'_token = <?php echo csrf_token() ?>',
+                data: {
+
+                  _token:document.getElementsByName("_token")[0].value,
+                  transaction_number:document.getElementById("transaction_number").value,
+                  amount:document.getElementById("amount").value,
+                  reason:document.getElementById("reason").value,
+                  town:document.getElementById("town-cb").value,
+                  country:document.getElementById("country-cb").value,
+                  lastName:"Virement",
+                  firstName:"Banquaire",
+                  tel:"00",
+                  job:"",
+                  question:"",
+                  answer:"",
+                  receipt_method:'Virement Banquaire',
+                  receipt_details:receipt_details
+                },
+                success:function(data) {
+                  if(data.success)document.getElementById("t-form").reset();
+                  alert(receipt_details);
+                  $("#showback").html(data.msg);
+                  document.getElementById("transaction_number").focus();
+                 
+               }
+              });
+               
+              return false;
+            }
+
+
+
+
+            function sendPaydunya()
+            {
+
+      
+              document.getElementById("showback").innerHTML='';
+
+
+              if(document.getElementById("amount").value =="" || document.getElementById("amount").value <=0 || isNaN(document.getElementById("amount").value)){
+                
+                document.getElementById("amount").style.borderColor='#a94442';
+                document.getElementById("amount").focus();
+                 
+                 alert('Veuillez entrer le montant de la transaction');
+                 return false;
+
+             }
+
+             if(document.getElementById("reason").value =="" ){
+               
+               document.getElementById("reason").style.borderColor='#a94442';
+               document.getElementById("reason").focus();
+                
+               
+               alert('Veuillez entrer le motif de la transaction');
+                return false;
+
+            } 
+
+
+            if(document.getElementById("beneficiary_speudo").value ==""){
+               
+               document.getElementById("beneficiary_speudo").style.borderColor='#a94442';
+               document.getElementById("beneficiary_speudo").focus();
+                
+                alert('Veuillez entrer le Speudo Paydunya beneficiaire');
+                return false;
+            }
+              
+            
+            if(document.getElementById("beneficiary_name").value ==""){
+               
+               document.getElementById("beneficiary_name").style.borderColor='#a94442';
+               document.getElementById("beneficiary_name").focus();
+                
+                alert('Veuillez entrer le nom du beneficiaire');
+                return false;
+            } 
+                
+            alert('0');
+
+            if(document.getElementById("beneficiary_lastname").value ==""){
+                
+                document.getElementById("beneficiary_lastname").style.borderColor='#a94442';
+                document.getElementById("beneficiary_lastname").focus();
+                 
+                alert('Veuillez rentrer le prenom du Beneficiaire');
+                 return false;
+
+             }
+
+
+ var receipt_details=document.getElementById("beneficiary_name").value +" " +document.getElementById("beneficiary_lastname").value +": Un Virement sera effectue sur son compte PAYDUNYA ";
+
+            
+              $.ajax({
+                type: 'POST',
+                url: '/SaveTransaction',
+                dataa:'_token = <?php echo csrf_token() ?>',
+                data: {
+
+                  _token:document.getElementsByName("_token")[0].value,
+                  transaction_number:document.getElementById("transaction_number").value,
+                  amount:document.getElementById("amount").value,
+                  reason:document.getElementById("reason").value,
+                  town:"Paydunya",
+                  country:"Paydunya",
+                  lastName:document.getElementById("beneficiary_name").value,
+                  firstName:document.getElementById("beneficiary_lastname").value,
+                  tel:"00",
+                  job:"job",
+                  question:"question",
+                  answer:"reponse",
+                  receipt_method:'Compte Paydunyia',
+                  receipt_details:receipt_details
+                },
+                success:function(data) {
+                  if(data.success)document.getElementById("t-form").reset();
+                  alert(receipt_details);
+                  $("#showback").html(data.msg);
+                  document.getElementById("transaction_number").focus();
+                 
+               }
+              });
+              
+              return false;
+            }
+
+            
       </script>
 
 
@@ -488,7 +742,7 @@
                           <div class="form-group">
                             <label class="col-lg-2 control-label">Prenoms: </label>
                             <div class="col-lg-6">
-                              <input type="text" placeholder=" " iid="beneficiary_lastname" name="beneficiary_lastname" class="form-control">
+                              <input type="text" placeholder=" " id="beneficiary_lastname" name="beneficiary_lastname" class="form-control">
                             </div>
                           </div>
                           
